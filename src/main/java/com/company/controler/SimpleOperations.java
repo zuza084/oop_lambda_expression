@@ -23,9 +23,12 @@ public class SimpleOperations {
                 .average ().getAsDouble ();
     }
     public void getElementsGreaterThanAvg(){
-        System.out.println (Arrays.stream(numbers).filter(number -> number > getAvg())
-                .sorted ().mapToObj (String::valueOf)
-    .collect(Collectors.joining (", " )));
+        System.out.printf ("Elementy większe od średniej: %s%n", Arrays.stream (numbers)
+                .filter (number -> number > getAvg ( ))
+                .mapToObj (Integer::new)
+                .sorted (Comparator.reverseOrder ( ))
+                .map (number -> number.toString ( ))
+                .collect (Collectors.joining (",")));
     }
     public static void main(String[] args){
         SimpleOperations so = new SimpleOperations ();
