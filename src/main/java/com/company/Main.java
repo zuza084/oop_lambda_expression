@@ -25,6 +25,8 @@ public class Main {
         uc.getAllUsersOrderByregistrationDateDesc ().forEach (System.out::println);
         System.out.println ( );
         uc.getAlAdminsOrderByEmailAsc ().forEach(System.out::println);
+        System.out.println ( );
+        uc.getFirst3UsersOrderByRegistrationDateAsc ().forEach (System.out::println);
     }
 
 }

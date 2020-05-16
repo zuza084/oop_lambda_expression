@@ -75,4 +75,8 @@ public List<User> getAlAdminsOrderByEmailAsc(){
             .filter (user -> user.getRole ()==Role.ROLE_ADMIN )
             .sorted (Comparator.comparing (User::getEmail)).collect(Collectors.toList ());
 }
+public List<User> getFirst3UsersOrderByRegistrationDateAsc(){
+    return UserData.users.stream().sorted (Comparator.comparing (User::getRegistrationDate))
+            .limit(3).collect(Collectors.toList ());
+}
 }
