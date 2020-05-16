@@ -92,6 +92,5 @@ public List<User> getFirst3UsersOrderByRegistrationDateAsc(){
                         md.digest(user.getPassword().getBytes(StandardCharsets.UTF_8)).toString().replace("[B@",""),
                         "ADMINISTRATOR"))
                 .collect(Collectors.joining("\n")));
-
 }
 }
