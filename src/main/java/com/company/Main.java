@@ -4,11 +4,12 @@ import com.company.controler.UserControler;
 import com.company.model.Role;
 import com.company.model.User;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchAlgorithmException {
         // write your code here
         UserControler uc = new UserControler ( );
         uc.getAllUsers ( );
@@ -18,7 +19,7 @@ public class Main {
         System.out.println("Aktywni użytkownicy");
         uc.getAllUsersWithStatus(true).forEach(System.out::println);
         System.out.println (uc.updateUserRoleById (2, Role.ROLE_ADMIN) );
-        System.out.println (uc.updateUserRoleById (6, Role.ROLE_USER) );
+        System.out.println (uc.updateUserRoleById (6, Role.ROLE_ADMIN) );
         System.out.println ("aktywni " + uc.countActiveUsers () );
         System.out.println ("admin " + uc.countAdmins () );
         System.out.println (uc.getAllUsersOrderByregistrationDateDesc ());
@@ -27,6 +28,6 @@ public class Main {
         uc.getAlAdminsOrderByEmailAsc ().forEach(System.out::println);
         System.out.println ( );
         uc.getFirst3UsersOrderByRegistrationDateAsc ().forEach (System.out::println);
+        uc.printAdmins ();
     }
-
 }
